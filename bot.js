@@ -17,12 +17,12 @@ bot.on('message', message => {
                 "title":"Wrong Channel",
                 "thumbnail":
                 {
-                    "url":"https://images-ext-1.discordapp.net/external/M_1WSrQXhqBECS5CZwX8E_zTp95DXBadhlVZdvsSz2A/https/msf.gg/exclamation-triangle-solid.png"
+                    "url":"https://msf.gg/exclamation-triangle-solid.png"
                 },
                 "color":14733329,
                 "footer":
                 {
-                    "icon_url":"https://media.discordapp.net/attachments/473602765755645957/745114506362880000/unknown.png",
+                    "icon_url":"https://msf.gg/msfgg-bot-36x36.png",
                     "text":"MSF.gg Bot • https://msf.gg/bot • tyejae#2513"
                 }
             }
