@@ -13,7 +13,7 @@ bot.on('message', message => {
         message.channel.send({
             "embed": {
                 "url": "http://discord.gg/",
-                "description":"Commands need to be run in <#473602765755645957>",
+                "description":"Commands need to be run in <#697913862095241296>",
                 "title":"Wrong Channel",
                 "thumbnail":
                 {
