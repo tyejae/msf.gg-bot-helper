@@ -18,7 +18,7 @@ bot.on('message', message => {
             title = "Canal Equivocado";
         }
         if (message.channel.id === '725423289903611904') {
-            description = "Les commandes doivent être exécutées <#697913862095241296>";
+            description = "Les commandes doivent être exécutées dans <#697913862095241296>";
             title = "Mauvaise Chaîne";
         }
         return message.reply({
