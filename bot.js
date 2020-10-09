@@ -27,6 +27,6 @@ bot.on('message', message => {
                     "text":"MSF.gg Bot • https://msf.gg/bot • tyejae#2513"
                 }
             }
-        }).then(r => r.delete({timeout: 30000});
+        }).then(r => r.delete({timeout: 30000}));
     }
 });
