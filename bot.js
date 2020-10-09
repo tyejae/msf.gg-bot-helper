@@ -10,7 +10,7 @@ bot.on("ready", function() {
 
 bot.on('message', message => {
     if (message.content.charAt(0) === '~') {
-        message.delete(1000);
+        message.delete(1000).catch();
         message.channel.send({
             "embed": {
                 "url": "http://discord.gg/",
@@ -27,6 +27,6 @@ bot.on('message', message => {
                     "text":"MSF.gg Bot • https://msf.gg/bot • tyejae#2513"
                 }
             }
-        }).then(r => r.delete(30000));
+        }).then(r => r.delete(30000)).catch();
     }
 });
