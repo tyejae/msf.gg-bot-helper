@@ -11,7 +11,7 @@ bot.on("ready", function() {
 bot.on('message', message => {
     if (message.content.charAt(0) === '~') {
         message.delete(1000).catch();
-        message.channel.reply({
+        message.reply({
             "embed": {
                 "url": "http://discord.gg/",
                 "description":"Commands need to be run in <#697913862095241296>",
