@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const Request = require('request');
 
-bot.login('NzQ1MzcwMDcwNzIwNDQ2NjI1.Xzwx-Q.35NB0QYghXt7Dy2IMFKl3nJ-f6Y');
+bot.login(process.env.BOT_TOKEN);
 
 bot.on("ready", function() {
     console.log(`Ready as: ${bot.user.tag}`);
