@@ -76,7 +76,7 @@ const changeAllRestUuidCron = new cron.CronJob('0 6 6 * *', () => {
     })
 })
 
-bot.login('NzQ1MzcwMDcwNzIwNDQ2NjI1.Xzwx-Q.wooptBtRE8hoM9NEPk36lUbjQC0');
+bot.login('');
 const baseUrl = 'https://api.tyejae.com/services/msfggbot';
 console.time('Startup');
 bot.once("ready", async function() {
