@@ -3,7 +3,11 @@ const bot = new Discord.Client();
 const request = require('request');
 const cron = require('cron');
 
-const updateRolesCron = new cron.CronJob('0 */1 * * *', async () => {
+const updateRolesCron = new cron.CronJob('05 */1 * * *', async () => {
+    updateRoles();
+});
+
+async function updateRoles() {
     console.log(`[${new Date().toLocaleString()}] Starting Update Roles`);
     const g = await bot.guilds.fetch('455443542358360064');
     const roles = await g.roles.fetch();
@@ -32,7 +36,7 @@ const updateRolesCron = new cron.CronJob('0 */1 * * *', async () => {
         },
     };
     request.post(postBody, (e, response, body) => {
-        if (response.statusCode === 200) {
+        if (response && response.statusCode === 200) {
             const patreonCaptain = roles.cache.find(role => role.name === 'Patreon Captain');
             const captains = JSON.parse(body);
             members.filter(member => member.roles.cache.find(role => role === patreonCaptain)).forEach(member => {
@@ -52,33 +56,35 @@ const updateRolesCron = new cron.CronJob('0 */1 * * *', async () => {
             console.log(response.statusCode, body)
         }
     })
-});
+}
 
-const changeAllRestUuidCron = new cron.CronJob('0 6 1 * *', () => {
-    // Runs at 6AM on the first of every month
+const changeAllRestUuidCron = new cron.CronJob('0 6 6 * *', () => {
+    // Runs at 6AM on the sixth of every month
     const postBody = {
         url: `${baseUrl}/updateRestUuids`,
         body: '',
         headers: {
             'Content-Type': 'application/json',
         },
-    };
+    }; 
     request.post(postBody, (e, response, body) => {
         if (response.statusCode === 200) {
             console.log(body); 
         } else {
-            console.log(response.statusCode, body)
+            console.log(response.statusCode, body) 
         }
     })
 })
 
-bot.login(process.env.BOT_TOKEN);
-const baseUrl = process.env.baseUrl;
-
+bot.login('NzQ1MzcwMDcwNzIwNDQ2NjI1.Xzwx-Q.wooptBtRE8hoM9NEPk36lUbjQC0');
+const baseUrl = 'https://api.tyejae.com/services/msfggbot';
+console.time('Startup');
 bot.once("ready", async function() {
     console.log(`Ready as: ${bot.user.tag}`);
     changeAllRestUuidCron.start();
     updateRolesCron.start();
+    updateRoles();
+    console.timeEnd('Startup');
 });
 
 bot.on('message', message => {
